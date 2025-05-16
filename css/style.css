@@ -1,0 +1,612 @@
+:root {
+    --primary-color: #0a0a0a; /* Dark, almost black for strong contrast */
+    --secondary-color: #fdf0d5; /* A warm, creamy off-white for backgrounds */
+    --accent-color: #c6ac8f; /* A sophisticated gold/bronze accent */
+    --text-color: #333333;
+    --light-gray: #e0e0e0;
+    --white: #ffffff;
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --transition-speed: 0.3s;
+    
+    /* Variabili per Anima Classica */
+    --classica-primary: #8B0000; /* Rosso bordeaux profondo */
+    --classica-secondary: #F8F1E3; /* Avorio chiaro */
+    --classica-accent: #D4AF37; /* Oro */
+    
+    /* Variabili per Anima Moderna */
+    --moderna-primary: #2D2D2D; /* Grigio scuro */
+    --moderna-secondary: #F5F5F5; /* Bianco ghiaccio */
+    --moderna-accent: #A0A0A0; /* Argento/grigio metallico */
+    
+    /* Variabili per Anima Onirica */
+    --onirica-primary: #114F8A; /* Blu profondo */
+    --onirica-secondary: #E9F7FF; /* Azzurro chiarissimo */
+    --onirica-accent: #4D96D6; /* Azzurro medio */
+    
+    /* Variabili per Anima Territoriale */
+    --territoriale-primary: #5B3B19; /* Marrone terra */
+    --territoriale-secondary: #F5E7C9; /* Beige chiaro */
+    --territoriale-accent: #D6A85C; /* Oro/giallo caldo */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 16px; /* Base font size */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-size: 2.5rem; /* Larger logo */
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+header nav ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 30px; /* Increased spacing */
+    position: relative; /* For submenu positioning */
+}
+
+header nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 5px 0;
+    transition: color var(--transition-speed) ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Submenu Styling */
+header nav ul .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    list-style: none;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 0 0 5px 5px;
+}
+
+header nav ul li:hover > .submenu {
+    display: block;
+}
+
+header nav ul .submenu li {
+    margin: 0;
+    width: 100%;
+}
+
+header nav ul .submenu li a {
+    padding: 10px 15px;
+    display: block;
+    font-size: 1rem;
+    border-bottom: none; /* Remove border from main nav */
+}
+
+header nav ul .submenu li a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+
+/* Hero Section */
+.hero {
+    background-color: var(--primary-color); /* Dark background for hero */
+    color: var(--white);
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.hero .hero-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero h2 {
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--light-gray);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    border: 2px solid var(--accent-color);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+.cta-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+
+/* General Section Styling */
+section {
+    padding: 80px 0;
+}
+
+section:nth-child(even) {
+    background-color: var(--white); /* Alternating background */
+}
+
+h2 {
+    font-family: var(--font-primary);
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 20px auto 0;
+}
+
+h3 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Filosofia Section */
+#filosofia .filosofia-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+#filosofia .filosofia-text {
+    flex: 2;
+}
+
+#filosofia .filosofia-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+#filosofia .filosofia-images img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed) ease;
+}
+#filosofia .filosofia-images img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Anime Section - Cards */
+.anima-card {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.anima-card:hover {
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    transform: translateY(-5px);
+}
+
+.anima-card:nth-child(odd) {
+    flex-direction: row-reverse; /* Alternate layout */
+}
+
+/* Stili personalizzati per Anima Classica */
+#anima-classica {
+    background-color: var(--classica-secondary);
+    border-left: 5px solid var(--classica-primary);
+    border-radius: 0 10px 10px 0;
+}
+
+#anima-classica h3 {
+    color: var(--classica-primary);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--classica-accent);
+    padding-bottom: 10px;
+}
+
+#anima-classica strong {
+    color: var(--classica-primary);
+}
+
+#anima-classica .anima-text ul li::before {
+    color: var(--classica-accent);
+}
+
+#anima-classica .anima-image-group img {
+    border: 3px solid var(--classica-accent);
+    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.2);
+}
+
+/* Stili personalizzati per Anima Moderna */
+#anima-moderna {
+    background-color: var(--moderna-secondary);
+    border-right: 5px solid var(--moderna-primary);
+    border-radius: 10px 0 0 10px;
+}
+
+#anima-moderna h3 {
+    color: var(--moderna-primary);
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#anima-moderna strong {
+    color: var(--moderna-primary);
+    font-weight: 400;
+}
+
+#anima-moderna .anima-text ul li::before {
+    content: '—'; /* Trattino invece di check */
+    color: var(--moderna-accent);
+}
+
+#anima-moderna .anima-image-group img {
+    filter: grayscale(30%);
+    transition: filter var(--transition-speed) ease;
+}
+
+#anima-moderna .anima-image-group img:hover {
+    filter: grayscale(0%);
+}
+
+/* Stili personalizzati per Anima Onirica */
+#anima-onirica {
+    background-color: var(--onirica-secondary);
+    background-image: linear-gradient(135deg, var(--onirica-secondary) 0%, var(--white) 100%);
+    border-top: 5px solid var(--onirica-primary);
+    border-bottom: 5px solid var(--onirica-accent);
+    border-radius: 10px;
+}
+
+#anima-onirica h3 {
+    color: var(--onirica-primary);
+    font-family: var(--font-primary);
+    font-style: italic;
+}
+
+#anima-onirica strong {
+    color: var(--onirica-primary);
+}
+
+#anima-onirica .anima-text ul li::before {
+    content: '✧'; /* Stella invece di check */
+    color: var(--onirica-accent);
+}
+
+#anima-onirica .anima-image-group img {
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(77, 150, 214, 0.3);
+    transform: rotate(-3deg);
+    transition: transform var(--transition-speed) ease;
+}
+
+#anima-onirica .anima-image-group img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* Stili personalizzati per Anima Territoriale */
+#anima-territoriale {
+    background-color: var(--territoriale-secondary);
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#anima-territoriale::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23D6A85C" stroke-width="1" stroke-dasharray="5,5" /></svg>');
+    opacity: 0.1;
+    z-index: 0;
+}
+
+#anima-territoriale .anima-text {
+    position: relative;
+    z-index: 1;
+}
+
+#anima-territoriale h3 {
+    color: var(--territoriale-primary);
+    font-family: var(--font-primary);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#anima-territoriale strong {
+    color: var(--territoriale-primary);
+}
+
+#anima-territoriale .anima-text ul li::before {
+    content: '❦'; /* Simbolo floreale invece di check */
+    color: var(--territoriale-accent);
+}
+
+#anima-territoriale .anima-image-group img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(91, 59, 25, 0.2);
+    transform: perspective(800px) rotateY(5deg);
+    transition: transform var(--transition-speed) ease;
+}
+
+#anima-territoriale .anima-image-group img:hover {
+    transform: perspective(800px) rotateY(0deg);
+}
+
+.anima-image-group {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    align-items: center;
+}
+
+.anima-image-group img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.anima-text {
+    flex: 1.5;
+}
+
+.anima-text ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.anima-text ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.anima-text ul li::before {
+    content: '✓'; /* Or use an SVG icon */
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Galleria Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crop images to fit */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Contatti Section */
+#contatti p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+#contatti p strong {
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--light-gray);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0;
+    }
+    .hero .hero-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    #filosofia .filosofia-content {
+        flex-direction: column;
+    }
+    .anima-card, .anima-card:nth-child(odd) {
+        flex-direction: column;
+    }
+    .anima-image-group {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    header nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    header nav ul .submenu {
+        position: static;
+        background-color: rgba(255,255,255,0.1); /* Slightly transparent on mobile */
+        box-shadow: none;
+        width: 100%;
+        padding-left: 0;
+    }
+    header nav ul .submenu li a {
+        padding: 8px 15px;
+    }
+
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.7rem; }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .gallery-grid img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 15px; }
+    .hero h2 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    .cta-button { padding: 12px 25px; font-size: 1rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on very small screens */
+        gap: 10px;
+    }
+    .gallery-grid img {
+        height: 150px;
+    }
+}
